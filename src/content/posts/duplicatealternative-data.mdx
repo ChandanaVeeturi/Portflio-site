@@ -1,0 +1,42 @@
+---
+title: Duplicate Alternative data — hype vs. signal
+excerpt: Not all novel data is useful data. A framework for evaluating alpha in new sources.
+pubDate: 2026-05-17
+tag: Finance
+readTime: 6
+featured: true
+---
+
+Every few months a new "alternative data" source gets pitched as the next edge
+— satellite imagery, credit-card panels, app-install data, geolocation.
+Most of it is correlated noise dressed up as alpha. A small fraction is
+durable signal.
+
+The question worth asking, before any vendor demo: *what does this data tell me
+that I can't get from the public version, and how long does the gap last?*
+
+## A simple test
+
+Before paying for a new dataset, I run it through three filters:
+
+1. **Lead time.** Does this dataset move *before* the data the rest of the
+   market is looking at? If yes, by how many days?
+2. **Decay.** Once enough people are using it, is the edge gone? Most
+   alternative data is a decaying-half-life trade.
+3. **Cost of being wrong.** What's the false-positive rate look like in
+   regimes that aren't the back-test window?
+
+If the answer to (1) is "a few hours" and (2) is "as soon as the second-largest
+hedge fund subscribes," you're looking at a feature, not a moat.
+
+## Where alternative data actually pays
+
+The pattern that consistently works isn't a single source — it's the
+*combination* of two or three weak signals into something with a higher
+information ratio than any of them alone. That's harder for a competitor to
+replicate, because the value isn't in the dataset; it's in the integration.
+
+The boring conclusion: most alternative data is overpriced, the integration
+work is undervalued, and the people quietly building proprietary feature sets
+out of public data are eating the lunch of teams who think a vendor
+subscription is a strategy.

@@ -1,0 +1,125 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../components/Layout.astro';
+import Timeline from '../components/Timeline.astro';
+import Socials from '../components/Socials.astro';
+import me from '../assets/me.jpeg';
+---
+
+<Layout
+  title="About — Chandana Veeturi"
+  description="A bit about Chandana Veeturi — and a timeline of how she got here."
+>
+  <div class="page-header about-header">
+    <div class="about-photo">
+      <Image src={me} alt="Chandana Veeturi" width={200} height={200} loading="eager" />
+    </div>
+    <div>
+      <div class="hero-eyebrow">About</div>
+      <h1>Where I've been.</h1>
+      <p>The short version of a longer story.</p>
+    </div>
+  </div>
+
+  <section class="about-body">
+    <p>
+      I'm Chandana — a data and product person who's spent the last few years
+      working across consulting, investment banking, and fintech. My day-to-day
+      sits at the intersection of data, finance, and product, and most of my
+      best work happens when those three are in the same room.
+    </p>
+    <p>
+      I started in <strong>consulting</strong> doing market sizing and pricing
+      work for BFSI clients, then moved into <strong>equity research</strong>
+      at an investment bank in Mumbai, where I built dashboards for portfolio
+      managers and got comfortable with the rhythm of financial markets. These
+      days I'm leading a 0→1 credit-scoring product at a fintech in
+      <strong>Hyderabad</strong> — owning the data product roadmap across risk,
+      growth, and ops.
+    </p>
+    <p>
+      Outside of work, I read more than I should, write occasionally
+      (<a href="/blog">on this blog</a>), and am usually mid-experiment with
+      something — a new analysis, a new tool, a new recipe.
+    </p>
+
+    <p style="margin-top: 1.5rem;">
+      The fastest way to reach me is
+      <a href="mailto:hello@chandanaveetori.com">email</a>. I'm also on the
+      usual places:
+    </p>
+
+    <Socials variant="pills" />
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2 class="about-section-heading">Timeline</h2>
+    <Timeline />
+  </section>
+</Layout>
+
+<style>
+  .about-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .about-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.5px solid var(--border);
+    background: var(--accent-light);
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+    display: block;
+  }
+
+  .about-body p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin: 0 0 1.1em;
+  }
+
+  .about-body strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .about-body a {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent-light);
+    transition: border-color 0.2s;
+  }
+
+  .about-body a:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  .about-section-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .about-header {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+    .about-photo {
+      width: 80px;
+      height: 80px;
+    }
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+// Light/dark toggle, sized to match the nav-link pill style.
+---
+
+<button
+  class="theme-toggle"
+  type="button"
+  aria-label="Toggle color theme"
+  data-theme-toggle
+>
+  <span aria-hidden="true" data-icon-light>☀</span>
+  <span aria-hidden="true" data-icon-dark style="display: none;">☾</span>
+</button>
+
+<style>
+  .theme-toggle {
+    background: none;
+    border: 0.5px solid var(--border);
+    cursor: pointer;
+    color: var(--muted);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-left: 8px;
+    font-size: 14px;
+    transition: transform 0.4s, color 0.2s, border-color 0.2s, background-color 0.2s;
+  }
+
+  .theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: rotate(20deg);
+  }
+</style>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  const iconLight = document.querySelector<HTMLElement>('[data-icon-light]');
+  const iconDark = document.querySelector<HTMLElement>('[data-icon-dark]');
+
+  function syncIcons() {
+    const theme = document.documentElement.getAttribute('data-theme');
+    if (!iconLight || !iconDark) return;
+    iconLight.style.display = theme === 'light' ? 'inline' : 'none';
+    iconDark.style.display = theme === 'dark' ? 'inline' : 'none';
+  }
+
+  syncIcons();
+
+  btn?.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    syncIcons();
+  });
+</script>

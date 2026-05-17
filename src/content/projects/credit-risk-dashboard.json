@@ -1,0 +1,20 @@
+{
+  "domain": "Finance · Data",
+  "title": "Credit Risk Dashboard",
+  "description": "End-to-end pipeline scoring loan applicants on alternative data signals — built to make underwriters' calls faster and more defensible.",
+  "role": "Lead developer",
+  "period": "2024 – 2025",
+  "highlights": [
+    "Reduced default rate by 18% via alternative-data signals",
+    "XGBoost pipeline serving 50k+ applicants",
+    "Streamlit dashboard adopted across the credit team in 6 weeks"
+  ],
+  "stack": ["Python", "XGBoost", "Streamlit", "PostgreSQL"],
+  "category": "finance",
+  "order": 1,
+  "image": "../../assets/projects/credit-risk-dashboard.svg",
+  "imageAlt": "Credit Risk Dashboard banner",
+  "links": [
+    { "label": "Case study", "href": "#" }
+  ]
+}

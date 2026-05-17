@@ -1,0 +1,20 @@
+{
+  "domain": "Product · Data",
+  "title": "Revenue Attribution Engine",
+  "description": "Multi-touch attribution model for a SaaS product — built to answer the question 'which channel actually earned this dollar' in a way the marketing team trusted.",
+  "role": "Analytics lead",
+  "period": "2023 – 2024",
+  "highlights": [
+    "Multi-touch attribution covering 14 channels",
+    "Exposed $2M in misattributed marketing spend",
+    "Powers the marketing team's quarterly planning"
+  ],
+  "stack": ["dbt", "BigQuery", "Looker", "Python"],
+  "category": "product",
+  "order": 2,
+  "image": "../../assets/projects/revenue-attribution.svg",
+  "imageAlt": "Revenue Attribution Engine banner",
+  "links": [
+    { "label": "Write-up", "href": "/blog/risk-mental-model" }
+  ]
+}

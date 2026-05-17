@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a3a8a" />
+      <stop offset="100%" stop-color="#1ba8c1" />
+    </linearGradient>
+    <radialGradient id="grain" cx="20%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)" />
+  <rect width="800" height="400" fill="url(#grain)" />
+  <g fill="rgba(255,255,255,0.18)">
+    <rect x="540" y="280" width="32" height="50" rx="2" />
+    <rect x="586" y="240" width="32" height="90" rx="2" />
+    <rect x="632" y="200" width="32" height="130" rx="2" />
+    <rect x="678" y="160" width="32" height="170" rx="2" />
+    <rect x="724" y="120" width="32" height="210" rx="2" />
+  </g>
+  <text x="48" y="220" fill="#fff" font-family="DM Serif Display, Georgia, serif" font-size="56" font-weight="500" letter-spacing="-1.5">Revenue Attribution</text>
+  <text x="48" y="262" fill="rgba(255,255,255,0.6)" font-family="DM Mono, monospace" font-size="13" letter-spacing="3">PRODUCT · DATA</text>
+</svg>

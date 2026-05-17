@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../components/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const filters: Array<{ key: string; label: string }> = [
+  { key: 'all', label: 'All' },
+  { key: 'data', label: 'Data' },
+  { key: 'finance', label: 'Finance' },
+  { key: 'product', label: 'Product' },
+];
+---
+
+<Layout
+  title="Projects — Chandana Veeturi"
+  description="Selected work at the cross-section of data, finance, and product."
+>
+  <div class="page-header">
+    <h1>Projects</h1>
+    <p>Things I've built — at the cross-section of data, finance &amp; product.</p>
+  </div>
+
+  <div class="filters" role="tablist">
+    {
+      filters.map((f, i) => (
+        <button
+          class={`filter-btn ${i === 0 ? 'active' : ''}`}
+          data-filter={f.key}
+          type="button"
+        >
+          {f.label}
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="projects-grid">
+    {
+      projects.map((p) => (
+        <article class="project-card" data-category={p.data.category}>
+          {p.data.image && (
+            <div class="project-image">
+              <Image
+                src={p.data.image}
+                alt={p.data.imageAlt ?? ''}
+                widths={[480, 800, 1200]}
+                sizes="(min-width: 720px) 720px, 100vw"
+              />
+            </div>
+          )}
+
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-domain">{p.data.domain}</span>
+              {p.data.role && <span class="project-meta-sep">·</span>}
+              {p.data.role && <span class="project-role">{p.data.role}</span>}
+              {p.data.period && <span class="project-meta-sep">·</span>}
+              {p.data.period && <span class="project-period">{p.data.period}</span>}
+            </div>
+
+            <h2 class="project-title">{p.data.title}</h2>
+            <p class="project-desc">{p.data.description}</p>
+
+            {p.data.highlights.length > 0 && (
+              <ul class="project-highlights">
+                {p.data.highlights.map((h) => (
+                  <li>{h}</li>
+                ))}
+              </ul>
+            )}
+
+            <div class="project-stack">
+              {p.data.stack.map((s) => (
+                <span class="stack-pill">{s}</span>
+              ))}
+            </div>
+
+            {p.data.links.length > 0 && (
+              <div class="project-links">
+                {p.data.links.map((l) => (
+                  <a href={l.href} class="project-link">
+                    {l.label} →
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach((card) => {
+        const matches = filter === 'all' || card.dataset.category === filter;
+        card.style.display = matches ? '' : 'none';
+      });
+    });
+  });
+</script>

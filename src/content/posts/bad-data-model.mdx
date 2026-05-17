@@ -1,0 +1,43 @@
+---
+title: The hidden cost of a bad data model
+excerpt: Technical debt in data is invisible until it explodes. Here's how to spot it early.
+pubDate: 2026-03-08
+tag: Data
+readTime: 5
+featured: true
+---
+
+Most data debt looks like this: a field called `status` that's been
+re-purposed three times across two services and a dashboard, with no two
+consumers agreeing on what its values mean. Nobody designed this. It accreted.
+
+The cost of bad data modelling shows up later — usually in the form of a
+metric that quietly disagrees with another metric, and an analyst trying to
+reconstruct *why* on a Friday afternoon.
+
+## The compounding tax
+
+Every consumer of an ambiguous field pays a tax: a `CASE WHEN` to handle the
+weird cases, a comment, a Slack thread to confirm the intended meaning. Each
+of those is small. But they multiply across teams and time, and they ossify —
+nobody dares to fix the source because three downstream dashboards now depend
+on its weirdness.
+
+## Smells worth chasing early
+
+A few patterns I've learned to take seriously:
+
+- A field whose **valid values change without a migration**.
+- A nullable column where `NULL` means three different things.
+- A timestamp where nobody can tell you the timezone.
+- A boolean named after a feature that no longer exists.
+- A "deleted" flag that's set, but the row is still queried.
+
+Each of these is a small fire. Most of them stay small. Some of them are the
+cause of a six-month metric drift that ends with a re-platforming project.
+
+## The fix is cultural, not technical
+
+Schema reviews. Owned glossaries. Killing fields you don't use anymore.
+Treating data contracts the way you'd treat an API contract. None of it is
+glamorous; all of it is cheaper than the cleanup.

@@ -1,0 +1,114 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout
+  title="Resume — Chandana Veetori"
+  description="Resume — Data, finance, and product."
+>
+  <div class="page-header resume-header">
+    <div>
+      <h1>Resume</h1>
+      <p>Data · Finance · Product</p>
+    </div>
+    <a class="btn-primary" href="/resume.pdf" style="white-space:nowrap;">
+      Download PDF
+    </a>
+  </div>
+
+  <div class="resume-layout">
+    <aside class="resume-sidebar">
+      <div class="section-label">Profile</div>
+      <div class="sidebar-name">Chandana Veetori</div>
+      <div class="sidebar-role">
+        Data &amp; Finance professional building product-led solutions.
+      </div>
+      <div>
+        <div class="contact-item">📍 Hyderabad, India</div>
+        <div class="contact-item">
+          ✉ <a href="mailto:hello@chandanaveetori.com">hello@chandanaveetori.com</a>
+        </div>
+        <div class="contact-item">
+          🔗 <a href="https://www.linkedin.com/">linkedin/chandanaveetori</a>
+        </div>
+        <div class="contact-item">
+          💻 <a href="https://github.com/">github/chandanaveetori</a>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="section-label" style="margin-top:1.5rem;">Skills</div>
+        <div class="skill-bar-wrap">
+          <div class="skill-name"><span>Python / SQL</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-name"><span>Financial Modelling</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-name"><span>Product Analytics</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-name"><span>ML / Data Science</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-name"><span>Data Engineering</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem;">
+        <div class="section-label">Education</div>
+        <div style="font-size:14px;font-weight:500;">B.Tech / MBA</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:3px;">
+          Your University · 2020
+        </div>
+      </div>
+    </aside>
+
+    <main class="resume-main">
+      <div class="section-label">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Senior Data PM</div>
+          <div class="exp-period">Jan 2023 – Present</div>
+        </div>
+        <div class="exp-company">FinTech Startup · Hyderabad</div>
+        <ul class="exp-bullets">
+          <li>Led 0→1 build of a credit scoring product used by 50k+ SMEs</li>
+          <li>Defined data product roadmap across risk, growth, and ops</li>
+          <li>Reduced model inference latency by 60% via pipeline refactor</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Data Analyst</div>
+          <div class="exp-period">Jun 2021 – Dec 2022</div>
+        </div>
+        <div class="exp-company">Investment Bank · Mumbai</div>
+        <ul class="exp-bullets">
+          <li>Built equity research dashboards for 12 portfolio managers</li>
+          <li>Automated P&amp;L reporting — saved 20 analyst hours/week</li>
+          <li>Co-authored internal report on alternative data use in credit</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Business Analyst Intern</div>
+          <div class="exp-period">Jan 2020 – May 2021</div>
+        </div>
+        <div class="exp-company">Consulting Firm · Bengaluru</div>
+        <ul class="exp-bullets">
+          <li>Ran market sizing models for 3 BFSI clients</li>
+          <li>Analysed pricing elasticity for a consumer lending product</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</Layout>

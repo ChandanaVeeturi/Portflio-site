@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Chandana Veeturi',
+  description = 'Personal site of Chandana Veeturi — building at the intersection of data, finance, and product.',
+} = Astro.props;
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/resume', label: 'Resume' },
+  { href: '/blog', label: 'Blog' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') return pathname === '/';
+  return pathname === href || pathname.startsWith(href + '/');
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Chandana Veeturi" href="/rss.xml" />
+
+    <script is:inline>
+      // Apply theme before paint to avoid flash. Defaults to light.
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const theme = stored === 'dark' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="site">
+      <nav class="nav">
+        <a href="/" class="nav-logo">Chandana<span>.</span>Veeturi</a>
+        <div class="nav-links">
+          {
+            links.map((l) => (
+              <a
+                href={l.href}
+                class={`nav-link ${isActive(l.href) ? 'active' : ''}`}
+              >
+                {l.label}
+              </a>
+            ))
+          }
+          <ThemeToggle />
+        </div>
+      </nav>
+
+      <slot />
+
+      <footer class="site-footer">
+        <span>© {new Date().getFullYear()} Chandana Veeturi</span>
+        <span>
+          <a href="/rss.xml">rss</a> · <a href="mailto:hello@chandanaveetori.com">email</a>
+        </span>
+      </footer>
+    </div>
+  </body>
+</html>

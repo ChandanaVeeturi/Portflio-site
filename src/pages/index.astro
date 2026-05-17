@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../components/Layout.astro';
+import Socials from '../components/Socials.astro';
+import me from '../assets/me.jpeg';
+---
+
+<Layout
+  title="Chandana Veeturi — Data, Finance & Product"
+  description="Chandana Veeturi — building at the intersection of data, finance, and product."
+>
+  <div class="hero hero-with-photo">
+    <div>
+      <div class="hero-eyebrow">Data · Finance · Product</div>
+      <h1 class="hero-name">Chandana Veeturi</h1>
+      <p class="hero-tagline">
+        Building at the <em>intersection</em> of data &amp; finance.
+      </p>
+      <p class="hero-desc">
+        I turn messy financial data into products people actually use — bridging
+        quant thinking with product intuition.
+      </p>
+      <p class="hero-desc">
+        Trained as an analyst, learned to build along the way, and six years
+        in I spend most of my time at the seam between the two. I care about
+        clean models, useful dashboards, and the kind of small product
+        decisions that make complicated things feel inevitable.
+      </p>
+      <p class="hero-desc">
+        Currently leading a 0→1 credit product at a fintech in Hyderabad —
+        previously at an investment bank in Mumbai and a consulting firm in
+        Bengaluru.
+      </p>
+
+      <Socials />
+
+      <div class="hero-tags">
+        <span class="tag">Python · SQL</span>
+        <span class="tag">Risk Modelling</span>
+        <span class="tag">Product Strategy</span>
+        <span class="tag">FinTech</span>
+        <span class="tag">Data Pipelines</span>
+        <span class="tag">Growth Analytics</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn-primary" href="/projects">See my work</a>
+        <a class="btn-ghost" href="/blog">Read the blog</a>
+        <a class="btn-ghost" href="/resume">View résumé</a>
+      </div>
+    </div>
+
+    <a href="/about" class="hero-photo" aria-label="About Chandana">
+      <Image src={me} alt="Chandana Veeturi" width={320} height={320} loading="eager" />
+    </a>
+  </div>
+</Layout>

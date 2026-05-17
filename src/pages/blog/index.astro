@@ -1,0 +1,77 @@
+---
+import Layout from '../../components/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const all = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const featured = all.filter((p) => p.data.featured);
+const rest = all.filter((p) => !p.data.featured);
+
+// First featured post becomes the big card; the rest of the featured list
+// fills the smaller cards below it.
+const [hero, ...secondary] = featured;
+
+function fmtMonth(d: Date) {
+  return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+---
+
+<Layout
+  title="Blog — Chandana Veetori"
+  description="Writing on data, finance, and the product craft."
+>
+  <div class="page-header">
+    <h1>Blog</h1>
+    <p>Writing on data, finance, and the product craft.</p>
+  </div>
+
+  <div class="blog-featured">
+    {
+      hero && (
+        <a class="blog-card featured" href={`/blog/${hero.slug}`}>
+          <div class="blog-tag">Featured</div>
+          <div class="blog-title">{hero.data.title}</div>
+          <div class="blog-excerpt">{hero.data.excerpt}</div>
+          <div class="blog-meta">
+            <span>{fmtMonth(hero.data.pubDate)}</span>
+            <span>{hero.data.readTime} min read</span>
+          </div>
+        </a>
+      )
+    }
+    {
+      secondary.map((p) => (
+        <a class="blog-card" href={`/blog/${p.slug}`}>
+          <div class="blog-tag">{p.data.tag}</div>
+          <div class="blog-title">{p.data.title}</div>
+          <div class="blog-excerpt">{p.data.excerpt}</div>
+          <div class="blog-meta">
+            <span>{fmtMonth(p.data.pubDate)}</span>
+            <span>{p.data.readTime} min read</span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+
+  {
+    rest.length > 0 && (
+      <>
+        <div class="blog-list-title">More writing</div>
+        <div class="blog-list">
+          {rest.map((p) => (
+            <a class="blog-list-item" href={`/blog/${p.slug}`}>
+              <div class="bli-left">
+                <div class="bli-tag">{p.data.tag}</div>
+                <div class="bli-title">{p.data.title}</div>
+              </div>
+              <div class="bli-date">{fmtMonth(p.data.pubDate)}</div>
+            </a>
+          ))}
+        </div>
+      </>
+    )
+  }
+</Layout>

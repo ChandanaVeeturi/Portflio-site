@@ -1,0 +1,20 @@
+{
+  "domain": "Finance · Product",
+  "title": "Expense Anomaly Detector",
+  "description": "Real-time flagging of unusual corporate-card transactions using unsupervised clustering. Designed to keep the operations review queue short and the false-positive rate honest.",
+  "role": "Backend + ML",
+  "period": "2024",
+  "highlights": [
+    "Real-time clustering on Kafka streams",
+    "False-positive rate kept below 4%",
+    "Operations team review queue cut by 60%"
+  ],
+  "stack": ["Kafka", "Sklearn", "React", "FastAPI"],
+  "category": "finance",
+  "order": 6,
+  "image": "../../assets/projects/expense-anomaly.svg",
+  "imageAlt": "Expense Anomaly Detector banner",
+  "links": [
+    { "label": "Architecture", "href": "#" }
+  ]
+}

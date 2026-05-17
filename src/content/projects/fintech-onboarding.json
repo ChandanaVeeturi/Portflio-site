@@ -1,0 +1,20 @@
+{
+  "domain": "Product",
+  "title": "Fintech Onboarding Audit",
+  "description": "A three-week funnel + qualitative research sprint for a digital bank. Mapped where users were dropping off, why, and what to do about it.",
+  "role": "Product analyst",
+  "period": "2023",
+  "highlights": [
+    "Funnel + 12 user interviews over 3 weeks",
+    "Cut onboarding drop-off by 34%",
+    "Findings adopted into the next quarter's roadmap"
+  ],
+  "stack": ["SQL", "Mixpanel", "Figma", "Notion"],
+  "category": "product",
+  "order": 4,
+  "image": "../../assets/projects/fintech-onboarding.svg",
+  "imageAlt": "Fintech Onboarding Audit banner",
+  "links": [
+    { "label": "Read the post", "href": "/blog/fintech-onboarding" }
+  ]
+}

@@ -1,0 +1,45 @@
+---
+title: dbt patterns I wish I knew earlier
+excerpt: Lessons from inheriting (and untangling) a 400-model dbt project.
+pubDate: 2025-12-05
+tag: Data
+readTime: 7
+---
+
+I inherited a 400-model dbt project a couple of years ago. It was, in spots,
+beautifully modular. In other spots it was a yarn ball of CTEs and macros that
+nobody currently at the company had ever fully read. A few of the things I'd
+wish I'd known going in:
+
+## 1. Layer your project, ruthlessly
+
+Three layers is enough: **staging** (clean, renamed source data — one model
+per source table), **intermediate** (joins, deduping, business logic — built
+on staging only), and **marts** (the things people query, built on
+intermediates). Resist the urge to skip layers.
+
+## 2. Tests aren't optional, but they aren't documentation either
+
+Every model gets at least: a uniqueness test on its primary key, not-null on
+the columns the rest of the project depends on, and accepted-values on any
+status enum. Those four lines per model catch 80% of the issues that would
+otherwise show up as a Slack message at 11pm.
+
+## 3. Macros are a power tool. Treat them like one.
+
+Every macro you write is a small DSL. New people will read your macros and
+either love you or curse you depending on how clear the names are and how
+narrow the abstraction is. Resist clever.
+
+## 4. Surrogate keys, always
+
+Use `dbt_utils.generate_surrogate_key`. Don't trust the upstream system to
+have a stable primary key, even if it claims to.
+
+## 5. The hardest part is deletion
+
+The hardest engineering problem in any mature dbt project isn't building new
+models. It's deleting old ones. Make it part of your process — quarterly model
+audits, deprecation tags, owner fields — or you'll be the person five years in
+running the same `SELECT * FROM old_v2_legacy_v3` that nobody dares to
+touch.

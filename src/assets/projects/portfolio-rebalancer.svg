@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5e2bb8" />
+      <stop offset="100%" stop-color="#d05fc4" />
+    </linearGradient>
+    <radialGradient id="grain" cx="70%" cy="80%" r="55%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)" />
+  <rect width="800" height="400" fill="url(#grain)" />
+  <g fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2">
+    <circle cx="690" cy="110" r="38" />
+    <circle cx="690" cy="110" r="60" />
+    <circle cx="690" cy="110" r="82" />
+  </g>
+  <circle cx="690" cy="110" r="6" fill="#fff" />
+  <text x="48" y="220" fill="#fff" font-family="DM Serif Display, Georgia, serif" font-size="56" font-weight="500" letter-spacing="-1.5">Portfolio Rebalancer</text>
+  <text x="48" y="262" fill="rgba(255,255,255,0.6)" font-family="DM Mono, monospace" font-size="13" letter-spacing="3">FINANCE</text>
+</svg>

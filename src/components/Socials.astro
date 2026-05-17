@@ -1,0 +1,97 @@
+---
+interface Props {
+  variant?: 'inline' | 'pills';
+}
+
+const { variant = 'inline' } = Astro.props;
+
+const links = [
+  {
+    name: 'linkedin',
+    href: 'https://www.linkedin.com/in/chandanaveetori',
+    label: 'LinkedIn',
+  },
+  {
+    name: 'instagram',
+    href: 'https://www.instagram.com/chandanaveetori',
+    label: 'Instagram',
+  },
+  {
+    name: 'email',
+    href: 'mailto:hello@chandanaveetori.com',
+    label: 'Email',
+  },
+];
+---
+
+<ul class={`socials socials-${variant}`}>
+  {
+    links.map((l) => (
+      <li>
+        <a
+          href={l.href}
+          target={l.name === 'email' ? undefined : '_blank'}
+          rel={l.name === 'email' ? undefined : 'me noopener'}
+        >
+          {l.label}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .socials {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+  }
+
+  .socials li {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .socials-inline a {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .socials-inline a:hover {
+    color: var(--accent);
+  }
+
+  .socials-inline li + li::before {
+    content: '·';
+    margin: 0 0.7rem;
+    color: var(--muted);
+  }
+
+  .socials-pills {
+    gap: 8px;
+  }
+
+  .socials-pills a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 0.5px solid var(--border);
+    color: var(--muted);
+    background: var(--white);
+    transition: all 0.2s;
+  }
+
+  .socials-pills a:hover {
+    color: var(--accent-dark);
+    background: var(--accent-light);
+    border-color: var(--accent);
+  }
+</style>

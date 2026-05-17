@@ -1,0 +1,20 @@
+{
+  "domain": "Finance",
+  "title": "Portfolio Rebalancer",
+  "description": "Side project — an automated rebalancing tool with tax-loss harvesting baked in. Started as a script for myself, ended up handling five asset classes and a small set of beta users.",
+  "role": "Solo build",
+  "period": "Side project · 2024",
+  "highlights": [
+    "Tax-loss harvesting logic across 5 asset classes",
+    "Custom user constraints (sector caps, ESG filters)",
+    "FastAPI backend with ~120ms p95 latency"
+  ],
+  "stack": ["Python", "Pandas", "FastAPI", "Postgres"],
+  "category": "finance",
+  "order": 3,
+  "image": "../../assets/projects/portfolio-rebalancer.svg",
+  "imageAlt": "Portfolio Rebalancer banner",
+  "links": [
+    { "label": "GitHub", "href": "https://github.com/" }
+  ]
+}

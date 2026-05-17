@@ -1,0 +1,20 @@
+{
+  "domain": "Data",
+  "title": "Market Sentiment NLP",
+  "description": "Scraped earnings call transcripts across eight quarters and built a sentiment model that quietly correlates with 30-day price movement. Now part of an internal research workflow.",
+  "role": "Data scientist",
+  "period": "2022",
+  "highlights": [
+    "Eight quarters of earnings transcripts ingested",
+    "Sentiment score correlated 0.41 with 30-day price",
+    "Embedded into an internal research dashboard"
+  ],
+  "stack": ["spaCy", "HuggingFace", "PostgreSQL", "Airflow"],
+  "category": "data",
+  "order": 5,
+  "image": "../../assets/projects/market-sentiment.svg",
+  "imageAlt": "Market Sentiment NLP banner",
+  "links": [
+    { "label": "Methods note", "href": "#" }
+  ]
+}
